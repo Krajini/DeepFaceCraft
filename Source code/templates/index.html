@@ -1,0 +1,271 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>Human Face Generator - DCGAN</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+background:linear-gradient(135deg,#1e293b,#020617);
+font-family:'Segoe UI',sans-serif;
+color:white;
+}
+
+/* Navbar */
+
+.navbar{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+padding:15px 0;
+}
+
+.navbar-brand{
+font-weight:700;
+font-size:22px;
+color:white !important;
+}
+
+/* Hero */
+
+.hero{
+padding:140px 0;
+}
+
+.hero h1{
+font-size:60px;
+font-weight:800;
+margin-bottom:25px;
+line-height:1.2;
+}
+
+.hero p{
+font-size:20px;
+color:#cbd5e1;
+margin-bottom:40px;
+line-height:1.7;
+}
+
+.btn-main{
+background:#2563eb;
+border:none;
+padding:14px 36px;
+border-radius:10px;
+font-size:18px;
+font-weight:600;
+}
+
+.btn-main:hover{
+background:#1d4ed8;
+}
+
+/* Hero Image */
+
+.hero-img{
+width:115%;
+border-radius:15px;
+box-shadow:0 30px 70px rgba(0,0,0,0.6);
+transition:0.4s;
+}
+
+.hero-img:hover{
+transform:scale(1.05);
+}
+
+/* Features */
+
+.features{
+padding:100px 0;
+}
+
+.features h2{
+text-align:center;
+margin-bottom:60px;
+font-size:38px;
+font-weight:700;
+}
+
+.feature-card{
+background:rgba(255,255,255,0.05);
+border-radius:15px;
+padding:35px;
+text-align:center;
+transition:0.3s;
+height:100%;
+}
+
+.feature-card:hover{
+transform:translateY(-8px);
+background:rgba(255,255,255,0.1);
+}
+
+.feature-card h4{
+font-size:22px;
+margin-bottom:15px;
+font-weight:600;
+}
+
+.feature-card p{
+font-size:17px;
+color:#cbd5e1;
+line-height:1.6;
+}
+
+/* Footer */
+
+.footer{
+text-align:center;
+padding:25px;
+color:#94a3b8;
+font-size:15px;
+margin-top:40px;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg">
+<div class="container">
+
+<a class="navbar-brand">
+DCGAN Face Generator
+</a>
+
+<a href="{% url 'Login' %}" class="btn btn-light">
+Login
+</a>
+
+</div>
+</nav>
+
+
+
+<!-- Hero Section -->
+
+<div class="container hero">
+
+<div class="row align-items-center">
+
+<div class="col-md-6">
+
+<h1>
+Generate Realistic Human Faces Using Artificial Intelligence
+</h1>
+
+<p>
+This project demonstrates the power of <b>Deep Convolutional Generative Adversarial Networks (DCGAN)</b> 
+to generate new human face images that do not exist in reality. By training a deep neural network on 
+large-scale facial datasets, the system learns complex patterns of human features such as eyes, 
+hair, skin tone, and facial structure, and generates completely new images that appear realistic.
+<br><br>
+Users can upload an image and allow the trained AI model to generate multiple new face variations. 
+Each generated image can be viewed and downloaded individually for further analysis or usage.
+</p>
+
+<a href="{% url 'Login' %}" class="btn btn-main">
+Start Generating Faces
+</a>
+
+</div>
+
+
+<div class="col-md-6">
+
+<img src="{% static 'images/main.jpeg' %}" class="hero-img">
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- Features Section -->
+
+<div class="container features">
+
+<h2>Project Features</h2>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+
+<div class="feature-card">
+
+<h4>AI Face Generation</h4>
+
+<p>
+The system uses a Deep Convolutional Generative Adversarial Network (DCGAN) 
+to learn patterns from real human faces and generate new synthetic images 
+that resemble real facial structures. This demonstrates the power of 
+generative deep learning models in image synthesis.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="col-md-4">
+
+<div class="feature-card">
+
+<h4>Upload Image & Generate Faces</h4>
+
+<p>
+Users can upload an input image to the system and the trained GAN model 
+will generate multiple variations of realistic human faces. These generated 
+images help demonstrate how artificial intelligence can learn and replicate 
+visual patterns from training datasets.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="col-md-4">
+
+<div class="feature-card">
+
+<h4>Download Generated Images</h4>
+
+<p>
+After generating new faces, the system displays each image individually 
+with download options. Users can save the generated images to their device 
+and generate multiple sets of faces to explore the creative potential of 
+AI-powered image generation.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- Footer -->
+
+<div class="footer">
+
+<p>
+Human Faces Generation using DCGAN
+</p>
+
+</div>
+
+
+</body>
+</html>

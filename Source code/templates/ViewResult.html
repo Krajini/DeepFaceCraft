@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>DCGAN Results</title>
+
+<meta charset="utf-8">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+background:linear-gradient(135deg,#1e293b,#020617);
+font-family:'Segoe UI',sans-serif;
+color:white;
+}
+
+/* Navbar */
+
+.navbar{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+}
+
+.navbar a{
+color:white !important;
+font-weight:500;
+}
+
+/* Result Card */
+
+.result-card{
+border:none;
+border-radius:15px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+box-shadow:0 20px 40px rgba(0,0,0,0.4);
+padding:30px;
+}
+
+/* Generated Images */
+
+.generated-img{
+border-radius:10px;
+box-shadow:0 10px 20px rgba(0,0,0,0.4);
+transition:0.3s;
+}
+
+.generated-img:hover{
+transform:scale(1.05);
+}
+
+/* Download Button */
+
+.btn-download{
+background:#2563eb;
+border:none;
+border-radius:6px;
+padding:6px 18px;
+color:white;
+}
+
+.btn-download:hover{
+background:#1d4ed8;
+}
+
+/* Section spacing */
+
+.main-section{
+margin-top:100px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold text-white">
+DCGAN Face Generator
+</a>
+
+<div>
+
+<a href="{% url 'HumanFaces' %}" class="nav-link d-inline">Generate Faces</a>
+
+<a href="{% url 'index' %}" class="btn btn-dark ms-3">Logout</a>
+
+</div>
+
+</div>
+
+</nav>
+
+
+
+<!-- MAIN SECTION -->
+
+<div class="container main-section">
+
+<div class="row justify-content-center">
+
+<div class="col-lg-8">
+
+<div class="result-card">
+<div class="text-center mb-3">
+
+<b>{{ data|safe }}</b>
+
+</div>
+
+<p style="text-align:justify; color:#cbd5e1; font-size:14px;">
+
+Below is the generated output produced by the trained DCGAN model.
+The image represents a synthetic human face created by the deep learning model.
+Users can download the generated image for further analysis or use.
+
+</p>
+
+<!-- Generated Image -->
+
+<div class="text-center">
+
+<img src="data:image/png;base64, {{ img }}" class="img-fluid generated-img">
+
+<br><br>
+
+<a href="data:image/png;base64, {{ img }}"
+download="generated_face.png"
+class="btn btn-download">
+
+Download Generated Image
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
